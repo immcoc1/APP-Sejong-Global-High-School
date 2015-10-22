@@ -1,0 +1,47 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context="org.androidtown.sample130.Mainlist"
+    >
+
+    <LinearLayout
+        android:layout_height="70dp"
+        android:layout_width="match_parent"
+        android:orientation="horizontal">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textSize="40dp"
+        android:text="작품 목록"
+        android:id="@+id/mainlist_logo_text"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:background="@color/accent_material_dark"
+        android:textColor="@color/abc_primary_text_disable_only_material_dark"
+
+         />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_floating_material_dark"
+        android:id="@+id/backmain_button"
+        android:onClick="OnClickBackBtn"
+        android:layout_weight="5"
+        />
+
+        </LinearLayout>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/mainlist_listview"/>
+
+
+
+</LinearLayout>
