@@ -13,6 +13,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.w3c.dom.Text;
+
 public class ContentActivity extends AppCompatActivity {
 
     String fromwhere;
@@ -29,7 +31,7 @@ public class ContentActivity extends AppCompatActivity {
         TextView logoName_textview = (TextView) findViewById(R.id.mainlist_logo_name);
 
 
-        ListView detailList_listview = (ListView) findViewById(R.id.detailList_content);
+        TextView detail_texttview = (TextView) findViewById(R.id.detail_textview);
         Button questionBtn_button = (Button) findViewById(R.id.questionBtn_content);
 
         logoName_textview.setText(name);
@@ -90,6 +92,7 @@ public class ContentActivity extends AppCompatActivity {
         TextView epoch_textview = (TextView) findViewById(R.id.epoch_content);
         TextView topic_textview = (TextView) findViewById(R.id.topic_content);
         TextView characteristic_textview = (TextView) findViewById(R.id.characteristic_content);
+        TextView detail_textview = (TextView)findViewById(R.id.detail_textview);
 
         main_textview.setText(main);
         author_textview.setText(author);
@@ -106,6 +109,37 @@ public class ContentActivity extends AppCompatActivity {
         epoch_textview.setTypeface(NanumGothic);
         topic_textview.setTypeface(NanumGothic);
         characteristic_textview.setTypeface(NanumGothic);
+
+
+    }
+
+    private void mySetText(int main, int author, int genre, int epoch, int topic, int characteristic, int detail) {
+
+        TextView main_textview = (TextView) findViewById(R.id.main_content);
+        TextView author_textview = (TextView) findViewById(R.id.author_content);
+        TextView genre_textview = (TextView) findViewById(R.id.genre_content);
+        TextView epoch_textview = (TextView) findViewById(R.id.epoch_content);
+        TextView topic_textview = (TextView) findViewById(R.id.topic_content);
+        TextView characteristic_textview = (TextView) findViewById(R.id.characteristic_content);
+        TextView detail_textview = (TextView)findViewById(R.id.detail_textview);
+
+        main_textview.setText(main);
+        author_textview.setText(author);
+        genre_textview.setText(genre);
+        epoch_textview.setText(epoch);
+        topic_textview.setText(topic);
+        characteristic_textview.setText(characteristic);
+        detail_textview.setText(detail);
+
+        Typeface NanumGothic = Typeface.createFromAsset(getAssets(), "fonts/NanumBarunGothic.ttf");
+
+        main_textview.setTypeface(NanumGothic);
+        author_textview.setTypeface(NanumGothic);
+        genre_textview.setTypeface(NanumGothic);
+        epoch_textview.setTypeface(NanumGothic);
+        topic_textview.setTypeface(NanumGothic);
+        characteristic_textview.setTypeface(NanumGothic);
+        detail_textview.setTypeface(NanumGothic);
 
 
     }

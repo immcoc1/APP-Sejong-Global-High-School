@@ -195,8 +195,8 @@
                 android:text="작품의 세부 특징"
                 android:textSize="25dp" />
 
-            <ListView
-                android:id="@+id/detailList_content"
+            <TextView
+                android:id="@+id/detail_textview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="17dp"
