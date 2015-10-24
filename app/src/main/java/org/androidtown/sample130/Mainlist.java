@@ -31,7 +31,7 @@ public class Mainlist extends AppCompatActivity {
     //------------DATABASE 상수-------------
 
     public static final String DATABASE_NAME = "LiteratureDatabase.db";
-    public static final int DATABASE_VERSION = 4;
+    public static final int DATABASE_VERSION = 5;
 
     //------------logcat---------------------
 
@@ -211,6 +211,7 @@ public class Mainlist extends AppCompatActivity {
                                 if (long_literature_list[i] == name) {
                                     Intent intent = new Intent(getApplicationContext(), ContentLongActivity.class);
                                     intent.putExtra("loading code", name);
+                                    intent.putExtra("start from", "Mainlist");
                                     startActivity(intent);
                                     isGenre = true;
                                     finish();
@@ -221,6 +222,7 @@ public class Mainlist extends AppCompatActivity {
 
                             Intent intent = new Intent(getApplicationContext(), ContentActivity.class);
                             intent.putExtra("loading code", name);
+                            intent.putExtra("start from", "Mainlist");
                             startActivity(intent);
                             isGenre = true;
                             finish();
@@ -277,7 +279,7 @@ public class Mainlist extends AppCompatActivity {
                                         helper = new MySQLiteOpenHelper(getApplicationContext(), DATABASE_NAME, null, DATABASE_VERSION);
                                         SQLiteDatabase db = helper.getWritableDatabase();
 
-                                        db.update(MySQLiteOpenHelper.DATABASE_TABLE_NAME, values, "isBookmarked=?", new String[]{temp_LongClick});
+                                        db.update(MySQLiteOpenHelper.DATABASE_TABLE_NAME, values, "name='"+temp_LongClick+"'", null);
 
                                         Toast.makeText(getApplicationContext(), temp_LongClick + "이(가) 내 작품에 등록되었습니다.", Toast.LENGTH_LONG).show();
                                        /* String sql = "select isBookmarked from "
@@ -307,7 +309,7 @@ public class Mainlist extends AppCompatActivity {
                         //내 작품 목록으로 넣을 지 알림창 만들기
                     }
 
-                    return false;
+                    return true;
                 }
             };
 

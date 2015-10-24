@@ -30,6 +30,7 @@ public class Mylist extends AppCompatActivity {
     String[] 작가;
 
     String temp_LongClick;
+    String test;
 
 
     @Override
@@ -45,27 +46,36 @@ public class Mylist extends AppCompatActivity {
 
         String sql = "select name, author from "
                 + MySQLiteOpenHelper.DATABASE_TABLE_NAME
-                + " where isBookmarked = '1'";
+                + " where isBookmarked = 1";
         cursor = db.rawQuery(sql, null);
+
 
         if (cursor != null) {
             int count = cursor.getCount();
             String[] temparray_name = new String[count];
             String[] temparray_author = new String[count];
 
-            for (int j = 1; j <= count; j++) {
+            for (int j = 0; j < count; j++) {
+                cursor.moveToNext();
                 temparray_name[j] = cursor.getString(0);
                 temparray_author[j] = cursor.getString(1);
-                cursor.moveToNext();
             }
             제목 = temparray_name;
             작가 = temparray_author;
+        } else {
+
+            Toast.makeText(getApplicationContext(), "null cursor", Toast.LENGTH_LONG).show();
         }
+
+        for (int i = 0; i < 제목.length; i++) {
+            test += 제목[i];
+        }
+        Toast.makeText(getApplicationContext(), test, Toast.LENGTH_LONG).show();
 
 
         myListViewAdapter_main();
 
-        mylist_listview = (ListView) findViewById(R.id.mainlist_listview);
+        mylist_listview = (ListView) findViewById(R.id.mylist_listview);
         mylist_listview.setOnItemClickListener(onItemClickListener);
         mylist_listview.setOnItemLongClickListener(onItemLongClickListener);
 
@@ -77,35 +87,34 @@ public class Mylist extends AppCompatActivity {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long l_position) {
 
+                    // 리스트뷰의 아이템을 클릭하였고
+                    // 만약 지금 보여주고 있는 목록이 '메인'(작품 목록)이면 실행
+
+                    ItemMain curItem = (ItemMain) parent.getAdapter().getItem(position);
+                    String name = curItem.getName();
+
+                    // 클릭한 항목의 '이름'을 가져옴 (화면에 보이는 글임)
 
 
-                        // 리스트뷰의 아이템을 클릭하였고
-                        // 만약 지금 보여주고 있는 목록이 '메인'(작품 목록)이면 실행
-
-                        ItemMain curItem = (ItemMain) parent.getAdapter().getItem(position);
-                        String name = curItem.getName();
-
-                        // 클릭한 항목의 '이름'을 가져옴 (화면에 보이는 글임)
-
-
-                            for (int i = 0; i < Mainlist.long_literature_list.length; i++) {
-                                if (Mainlist.long_literature_list[i] == name) {
-                                    Intent intent = new Intent(getApplicationContext(), ContentLongActivity.class);
-                                    intent.putExtra("loading code", name);
-                                    startActivity(intent);
-                                    finish();
-
-                                    //만약 클릭한 작품이 '긴 작품'이면 ContentLongActivity 시작
-                                }
-                            }
-
-                            Intent intent = new Intent(getApplicationContext(), ContentActivity.class);
+                    for (int i = 0; i < Mainlist.long_literature_list.length; i++) {
+                        if (Mainlist.long_literature_list[i] == name) {
+                            Intent intent = new Intent(getApplicationContext(), ContentLongActivity.class);
                             intent.putExtra("loading code", name);
+                            intent.putExtra("start from", "Mylist");
                             startActivity(intent);
                             finish();
-                            //그 외 일반작품들을 클릭하면 ContentActivit 시작
-                        }
 
+                            //만약 클릭한 작품이 '긴 작품'이면 ContentLongActivity 시작
+                        }
+                    }
+
+                    Intent intent = new Intent(getApplicationContext(), ContentActivity.class);
+                    intent.putExtra("loading code", name);
+                    intent.putExtra("start from", "Mylist");
+                    startActivity(intent);
+                    finish();
+                    //그 외 일반작품들을 클릭하면 ContentActivit 시작
+                }
 
 
             };
@@ -117,93 +126,92 @@ public class Mylist extends AppCompatActivity {
                 public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
 
 
+                    ItemMain curItem = (ItemMain) parent.getAdapter().getItem(position);
+                    String name = curItem.getName();
 
-                        ItemMain curItem = (ItemMain) parent.getAdapter().getItem(position);
-                        String name = curItem.getName();
+                    if (name == "뒤로가기") {
 
-                        if (name == "뒤로가기") {
+                        return false;
 
-                            return false;
+                    }
 
-                        }
+                    AlertDialog.Builder builder = new AlertDialog.Builder(new ContextThemeWrapper(Mylist.this, R.style.AlertDialog_AppCompat_Light));
+                    temp_LongClick = name;
 
-                        AlertDialog.Builder builder = new AlertDialog.Builder(new ContextThemeWrapper(Mylist.this, R.style.AlertDialog_AppCompat_Light));
-                        temp_LongClick = name;
+                    // 여기서 부터는 알림창의 속성 설정
 
-                        // 여기서 부터는 알림창의 속성 설정
+                    builder.setTitle("북마크")        // 제목 설정
 
-                        builder.setTitle("북마크")        // 제목 설정
+                            .setMessage(name + "Would you put this in the bookmark?")        // 메세지 설정
 
-                                .setMessage(name + "Would you put this in the bookmark?")        // 메세지 설정
+                            .setCancelable(false)        // 뒤로 버튼 클릭시 취소 가능 설정
 
-                                .setCancelable(false)        // 뒤로 버튼 클릭시 취소 가능 설정
+                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
 
-                                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                // 확인 버튼 클릭시 설정
 
-                                    // 확인 버튼 클릭시 설정
+                                public void onClick(DialogInterface dialog, int whichButton) {
 
-                                    public void onClick(DialogInterface dialog, int whichButton) {
+                                    ContentValues values = new ContentValues();
+                                    values.put("isBookmarked", 0);
+                                    MySQLiteOpenHelper helper;
+                                    helper = new MySQLiteOpenHelper(getApplicationContext(), Mainlist.DATABASE_NAME, null, Mainlist.DATABASE_VERSION);
+                                    SQLiteDatabase db = helper.getWritableDatabase();
 
-                                        ContentValues values = new ContentValues();
-                                        values.put("isBookmarked", 0);
-                                        MySQLiteOpenHelper helper;
-                                        helper = new MySQLiteOpenHelper(getApplicationContext(), Mainlist.DATABASE_NAME, null, Mainlist.DATABASE_VERSION);
-                                        SQLiteDatabase db = helper.getWritableDatabase();
+                                    db.update(MySQLiteOpenHelper.DATABASE_TABLE_NAME, values, "name='" + temp_LongClick + "'", null);
 
-                                        db.update(MySQLiteOpenHelper.DATABASE_TABLE_NAME, values, "isBookmarked=?", new String[]{temp_LongClick});
-
-                                        Toast.makeText(getApplicationContext(), temp_LongClick + "이(가) 내 작품에서 제외되었습니다.", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(getApplicationContext(), temp_LongClick + "이(가) 내 작품에서 제외되었습니다.", Toast.LENGTH_LONG).show();
                                        /* String sql = "select isBookmarked from "
                                                 + MySQLiteOpenHelper.DATABASE_TABLE_NAME
                                                 + " where name = '"
                                                 + temp_LongClick
                                                 + "'";*/
 
-                                        String sql = "select name, author from "
-                                                + MySQLiteOpenHelper.DATABASE_TABLE_NAME
-                                                + " where isBookmarked = '1'";
-                                        cursor = db.rawQuery(sql, null);
+                                    String sql = "select name, author from "
+                                            + MySQLiteOpenHelper.DATABASE_TABLE_NAME
+                                            + " where isBookmarked = 1";
+                                    cursor = db.rawQuery(sql, null);
 
-                                        if (cursor != null) {
-                                            int count = cursor.getCount();
-                                            String[] temparray_name = new String[count];
-                                            String[] temparray_author = new String[count];
+                                    if (cursor != null) {
+                                        int count = cursor.getCount();
+                                        String[] temparray_name = new String[count];
+                                        String[] temparray_author = new String[count];
 
-                                            for (int j = 1; j <= count; j++) {
-                                                temparray_name[j] = cursor.getString(0);
-                                                temparray_author[j] = cursor.getString(1);
-                                                cursor.moveToNext();
-                                            }
-                                            제목 = temparray_name;
-                                            작가 = temparray_author;
+                                        for (int j = 1; j <= count; j++) {
+                                            temparray_name[j] = cursor.getString(0);
+                                            temparray_author[j] = cursor.getString(1);
+                                            cursor.moveToNext();
                                         }
-
-
-                                        myListViewAdapter_main();
-
-                                    }
-                                })
-
-                                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-
-                                    // 취소 버튼 클릭시 설정
-
-                                    public void onClick(DialogInterface dialog, int whichButton) {
-
-                                        dialog.cancel();
-
+                                        제목 = temparray_name;
+                                        작가 = temparray_author;
                                     }
 
-                                });
 
-                        Toast.makeText(getApplicationContext(), "롱클릭됨", Toast.LENGTH_SHORT).show();
+                                    myListViewAdapter_main();
 
-                        AlertDialog dialog = builder.create();    // 알림창 객체 생성
-                        dialog.show();    // 알림창 띄우기
-                        //내 작품 목록으로 넣을 지 알림창 만들기
+                                }
+                            })
+
+                            .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+
+                                // 취소 버튼 클릭시 설정
+
+                                public void onClick(DialogInterface dialog, int whichButton) {
+
+                                    dialog.cancel();
+
+                                }
+
+                            });
+
+                    Toast.makeText(getApplicationContext(), "롱클릭됨", Toast.LENGTH_SHORT).show();
+
+                    AlertDialog dialog = builder.create();    // 알림창 객체 생성
+                    dialog.show();    // 알림창 띄우기
+                    //내 작품 목록으로 넣을 지 알림창 만들기
 
 
-                    return false;
+                    return true;
                 }
             };
 

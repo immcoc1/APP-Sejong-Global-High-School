@@ -15,11 +15,14 @@ import android.widget.Toast;
 
 public class ContentActivity extends AppCompatActivity {
 
+    String fromwhere;
+    Intent getIntent;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Intent intent = getIntent();
-        String name = intent.getExtras().getString("loading code");
+        getIntent = getIntent();
+        String name = getIntent.getExtras().getString("loading code");
 
         setContentView(R.layout.activity_content);
 
@@ -65,9 +68,18 @@ public class ContentActivity extends AppCompatActivity {
 
     public void OnClickBackBtn(View v) {
 
-        Intent intent = new Intent(getApplicationContext(),Mainlist.class);
-        startActivity(intent);
-        finish();
+        getIntent = getIntent();
+        fromwhere = getIntent.getExtras().getString("from where");
+
+        if(fromwhere.equals("Mainlist")) {
+            Intent intent = new Intent(getApplicationContext(), Mainlist.class);
+            startActivity(intent);
+            finish();
+        } else if (fromwhere.equals("Mylist")){
+            Intent intent = new Intent(getApplicationContext(), Mylist.class);
+            startActivity(intent);
+            finish();
+        }
     }
 
     private void mySetText(int main, int author, int genre, int epoch, int topic, int characteristic) {
