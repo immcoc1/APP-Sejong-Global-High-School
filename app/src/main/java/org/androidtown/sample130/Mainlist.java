@@ -45,7 +45,7 @@ public class Mainlist extends AppCompatActivity {
             "연시조 - 조선 전기", "연시조 - 조선 후기", "사설시조",
             "가사 - 조선 전기", "가사 - 조선 후기",
             "악장"};
-    final String[] long_literature_list = {"한림별곡", "강호사시가", "고산구곡가", "도산십이곡",
+    static final String[] long_literature_list = {"한림별곡", "강호사시가", "고산구곡가", "도산십이곡",
             "관동별곡", "규원가", "면앙정가", "사미인곡"
             , "상춘곡", "속미인곡", "견회요", "농가월령가"
             , "누항사", "선상탄", "용부가", "일동장유가"
@@ -265,7 +265,7 @@ public class Mainlist extends AppCompatActivity {
 
                                 .setCancelable(false)        // 뒤로 버튼 클릭시 취소 가능 설정
 
-                                .setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
 
                                     // 확인 버튼 클릭시 설정
 
@@ -288,7 +288,7 @@ public class Mainlist extends AppCompatActivity {
                                     }
                                 })
 
-                                .setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
 
                                     // 취소 버튼 클릭시 설정
 
