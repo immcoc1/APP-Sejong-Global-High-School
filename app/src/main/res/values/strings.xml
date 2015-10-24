@@ -43,6 +43,38 @@
         서정적, 체념적
     </string>
 
+    <string name="구지가_main">
+       龜何龜何(구하구하)\n
+首其現也(수기현야)\n
+若不現也(약불현야)\n
+燔灼而喫也(번작이끽야)\n\n
+
+        거북아 거북아\n
+        머리를 내어라\n
+        내놓지 않으면\n
+        구워서 먹으리\n
+    </string>
+
+    <string name="구지가_author">
+        구간
+    </string>
+
+    <string name="구지가_genre">
+        고대가요
+    </string>
+
+    <string name="구지가_epoch">
+        신라 유리왕 19년, 가락국 건국 때
+    </string>
+
+    <string name="구지가_topic">
+        수로왕 강림 기원, 생명 탄생의 염원
+    </string>
+
+    <string name="구지지_characteristic">
+         주술적, 집단적, 직설적 표현, 명령 어법
+    </string>
+
 
 
 
