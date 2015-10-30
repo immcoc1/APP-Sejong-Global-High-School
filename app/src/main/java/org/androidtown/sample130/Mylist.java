@@ -15,7 +15,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -62,6 +64,24 @@ public class Mylist extends AppCompatActivity {
             }
             제목 = temparray_name;
             작가 = temparray_author;
+            if (제목.length != 0) {
+                TextView noListText1 = (TextView) findViewById(R.id.mylist_noListText1);
+                TextView noListText2 = (TextView) findViewById(R.id.mylist_noListText2);
+                ImageView noListImage = (ImageView) findViewById(R.id.mylist_noListImage);
+
+                noListText1.setVisibility(View.GONE);
+                noListText2.setVisibility(View.GONE);
+                noListImage.setVisibility(View.GONE);
+
+            } else {
+                TextView noListText1 = (TextView) findViewById(R.id.mylist_noListText1);
+                TextView noListText2 = (TextView) findViewById(R.id.mylist_noListText2);
+                ImageView noListImage = (ImageView) findViewById(R.id.mylist_noListImage);
+
+                noListText1.setVisibility(View.VISIBLE);
+                noListText2.setVisibility(View.VISIBLE);
+                noListImage.setVisibility(View.VISIBLE);
+            }
         } else {
 
             Toast.makeText(getApplicationContext(), "null cursor", Toast.LENGTH_LONG).show();
@@ -184,6 +204,23 @@ public class Mylist extends AppCompatActivity {
                                         }
                                         제목 = temparray_name;
                                         작가 = temparray_author;
+                                        if (제목.length != 0) {
+                                            TextView noListText1 = (TextView) findViewById(R.id.mylist_noListText1);
+                                            TextView noListText2 = (TextView) findViewById(R.id.mylist_noListText2);
+                                            ImageView noListImage = (ImageView) findViewById(R.id.mylist_noListImage);
+
+                                            noListText1.setVisibility(View.GONE);
+                                            noListText2.setVisibility(View.GONE);
+                                            noListImage.setVisibility(View.GONE);
+                                        } else {
+                                            TextView noListText1 = (TextView) findViewById(R.id.mylist_noListText1);
+                                            TextView noListText2 = (TextView) findViewById(R.id.mylist_noListText2);
+                                            ImageView noListImage = (ImageView) findViewById(R.id.mylist_noListImage);
+
+                                            noListText1.setVisibility(View.VISIBLE);
+                                            noListText2.setVisibility(View.VISIBLE);
+                                            noListImage.setVisibility(View.VISIBLE);
+                                        }
                                     }
 
 

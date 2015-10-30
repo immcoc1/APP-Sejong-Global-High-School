@@ -71,7 +71,7 @@ public class ContentActivity extends AppCompatActivity {
     public void OnClickBackBtn(View v) {
 
         getIntent = getIntent();
-        fromwhere = getIntent.getExtras().getString("from where");
+        fromwhere = getIntent.getExtras().getString("start from");
 
         if(fromwhere.equals("Mainlist")) {
             Intent intent = new Intent(getApplicationContext(), Mainlist.class);
