@@ -32,13 +32,15 @@
         <activity
             android:name=".Mainlist"
             android:label="@string/title_activity_mainlist"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".Mylist"
-            android:label="@string/title_activity_mylist"></activity>
+            android:label="@string/title_activity_mylist"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".ContentActivity"
-            android:label="@string/title_activity_content"></activity>
+            android:label="@string/title_activity_content"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".LongLitActivity"
             android:label="@string/title_activity_long_lit"
