@@ -263,7 +263,7 @@ public class Mainlist extends AppCompatActivity {
 
                         builder.setTitle("북마크")        // 제목 설정
 
-                                .setMessage(name + "Would you put this in the bookmark?")        // 메세지 설정
+                                .setMessage(name + "을(를) 내 작품에 등록하시겠습니까?")        // 메세지 설정
 
                                 .setCancelable(false)        // 뒤로 버튼 클릭시 취소 가능 설정
 

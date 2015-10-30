@@ -162,7 +162,7 @@ public class Mylist extends AppCompatActivity {
 
                     builder.setTitle("북마크")        // 제목 설정
 
-                            .setMessage(name + "Would you put this in the bookmark?")        // 메세지 설정
+                            .setMessage(name + "을(를) 내 작품에서 제외하시겠습니까?")        // 메세지 설정
 
                             .setCancelable(false)        // 뒤로 버튼 클릭시 취소 가능 설정
 
@@ -197,10 +197,10 @@ public class Mylist extends AppCompatActivity {
                                         String[] temparray_name = new String[count];
                                         String[] temparray_author = new String[count];
 
-                                        for (int j = 1; j <= count; j++) {
+                                        for (int j = 0; j < count; j++) {
+                                            cursor.moveToNext();
                                             temparray_name[j] = cursor.getString(0);
                                             temparray_author[j] = cursor.getString(1);
-                                            cursor.moveToNext();
                                         }
                                         제목 = temparray_name;
                                         작가 = temparray_author;
