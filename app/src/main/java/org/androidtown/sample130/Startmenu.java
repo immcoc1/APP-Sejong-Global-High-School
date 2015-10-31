@@ -26,9 +26,9 @@ public class Startmenu extends AppCompatActivity {
 
         Typeface NanumGothic = Typeface.createFromAsset(getAssets(), "fonts/NanumBarunGothic.ttf");
 
-        Button mainlist_button =(Button)findViewById(R.id.mainlist_button);
-        Button mylist_button =(Button)findViewById(R.id.mylist_button);
-        Button sunneunglist_button =(Button)findViewById(R.id.suneunglist_button);
+        Button mainlist_button = (Button) findViewById(R.id.mainlist_button);
+        Button mylist_button = (Button) findViewById(R.id.mylist_button);
+        Button sunneunglist_button = (Button) findViewById(R.id.suneunglist_button);
 
         mainlist_button.setTypeface(NanumGothic);
         mylist_button.setTypeface(NanumGothic);
@@ -88,17 +88,17 @@ public class Startmenu extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void mainlist_button_onClick(View v){
+    public void mainlist_button_onClick(View v) {
 
-        Intent intent = new Intent(getApplicationContext(),Mainlist.class);
+        Intent intent = new Intent(getApplicationContext(), Mainlist.class);
         startActivity(intent);
         finish();
 
     }
 
-    public void mylist_button_onClick(View v){
+    public void mylist_button_onClick(View v) {
 
-        Intent intent = new Intent(getApplicationContext(),Mylist.class);
+        Intent intent = new Intent(getApplicationContext(), Mylist.class);
         startActivity(intent);
         finish();
 
@@ -126,4 +126,4 @@ public class Startmenu extends AppCompatActivity {
         alert.show();
     }
 }
-}
+
