@@ -3,11 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+
+
     tools:context="org.androidtown.sample130.Mainlist">
+
+
+
+
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -42,9 +44,62 @@
 
     </RelativeLayout>
 
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/content_notYet"
+        android:background="@android:color/white"
+        android:visibility="gone"
+
+        >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/construction"
+            android:id="@+id/content_notYetImage"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="아직 준비가 안됬어요!"
+            android:layout_below="@id/content_notYetImage"
+            android:id="@+id/content_notYetText1"
+            android:layout_centerHorizontal="true"
+            android:textSize="20sp"
+            android:layout_margin="10dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="빠른 시일 내에 준비하겠습니다!"
+            android:layout_below="@id/content_notYetText1"
+            android:id="@+id/content_notYetText2"
+            android:layout_centerHorizontal="true"
+            android:textSize="15sp"
+
+            android:textColor="@android:color/darker_gray"
+            />
+
+        <!-- <div>Icons made by <a href="http://www.freepik.com" title="Freepik">
+        Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a>
+                    is licensed by <a href="http://creativecommons.org/licenses/by/3.0/"
+                    title="Creative Commons BY 3.0">CC BY 3.0</a></div>-->
+
+    </RelativeLayout>
+
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:padding="16dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -187,13 +242,29 @@
 
             </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="45dp"
+
+            >
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/cross"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="17dp"
-                android:layout_marginTop="45dp"
+
                 android:text="작품의 세부 특징"
                 android:textSize="25dp" />
+
+            </LinearLayout>
+
 
             <TextView
                 android:id="@+id/detail_textview"
@@ -208,17 +279,25 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:layout_margin="40dp"
                 android:onClick="OnClickQuestionBtn"
                 android:paddingLeft="30dp"
                 android:paddingRight="30dp"
                 android:paddingTop="20dp"
+                android:paddingBottom="20dp"
                 android:text="기출 문제"
-                android:textSize="25dp" />
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:background="@android:color/holo_orange_light"
+                android:textSize="25dp"
+                />
 
         </LinearLayout>
 
     </ScrollView>
+
+
 
 
 </LinearLayout>
