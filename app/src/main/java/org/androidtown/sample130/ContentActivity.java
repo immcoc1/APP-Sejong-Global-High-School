@@ -40,6 +40,8 @@ public class ContentActivity extends AppCompatActivity {
 
         if (name.equals("공무도하가")) {
             mySetText(R.string.공무도하가_main, R.string.공무도하가_author, R.string.공무도하가_genre, R.string.공무도하가_epoch, R.string.공무도하가_topic, R.string.공무도하가_characteristic);
+        } else if (name.equals("구지가")){
+            mySetText(R.string.구지가_main, R.string.구지가_author, R.string.구지가_genre, R.string.구지가_epoch, R.string.구지가_topic, R.string.구지가_characteristic);
         }
 
         //----------------------------------------------------------------------
