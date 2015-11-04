@@ -13,7 +13,6 @@ import android.widget.TextView;
 public class ItemGenreView extends LinearLayout {
 
     TextView list_item_genre;
-    Typeface NanumGothic = Typeface.createFromAsset(getContext().getAssets(), "fonts/NanumBarunGothic.ttf");
 
     public ItemGenreView(Context context) {
         super(context);
@@ -30,7 +29,7 @@ public class ItemGenreView extends LinearLayout {
         inflater.inflate(R.layout.list_item2, this, true);
 
         list_item_genre = (TextView) findViewById(R.id.list_item_genre);
-        list_item_genre.setTypeface(NanumGothic);
+        list_item_genre.setTypeface(SplashScreen.Fonts.NanumGothic);
 
     }
 

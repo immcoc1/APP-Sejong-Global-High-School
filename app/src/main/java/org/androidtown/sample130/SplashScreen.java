@@ -27,10 +27,10 @@ public class SplashScreen extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_splash_screen);
+        initializeTypeface();
 
         TextView splash_screen_logo = (TextView)findViewById(R.id.splash_screen_logo);
-        Typeface NanumGothic = Typeface.createFromAsset(getApplication().getAssets(), "fonts/NanumBarunGothic.ttf");
-        splash_screen_logo.setTypeface(NanumGothic);
+        splash_screen_logo.setTypeface(Fonts.NanumGothic);
 
 
 
@@ -51,6 +51,15 @@ public class SplashScreen extends Activity {
                 finish();
             }
         }, SPLASH_TIME_OUT);
+    }
+
+    public static class Fonts {
+        public static Typeface NanumGothic;
+    }
+
+
+    private void initializeTypeface() {
+        Fonts.NanumGothic = Typeface.createFromAsset(getAssets(), "fonts/NanumBarunGothic.ttf");
     }
 
 }

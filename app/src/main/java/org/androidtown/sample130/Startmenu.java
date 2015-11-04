@@ -28,7 +28,7 @@ public class Startmenu extends AppCompatActivity {
 
         Button mainlist_button = (Button) findViewById(R.id.mainlist_button);
         Button mylist_button = (Button) findViewById(R.id.mylist_button);
-        Button sunneunglist_button = (Button) findViewById(R.id.suneunglist_button);
+        Button sunneunglist_button = (Button) findViewById(R.id.KSATlist_button);
 
         mainlist_button.setTypeface(NanumGothic);
         mylist_button.setTypeface(NanumGothic);

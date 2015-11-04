@@ -16,7 +16,7 @@ public class ItemLitView extends LinearLayout {
     TextView list_item_untranslated;
     TextView list_item_translated;
 
-    Typeface NanumGothic = Typeface.createFromAsset(getContext().getAssets(), "fonts/NanumBarunGothic.ttf");
+
 
 
     public ItemLitView(Context context) {
@@ -36,8 +36,8 @@ public class ItemLitView extends LinearLayout {
         list_item_untranslated = (TextView) findViewById(R.id.list_item_untranslated);
         list_item_translated = (TextView) findViewById(R.id.list_item_translated);
 
-        list_item_untranslated.setTypeface(NanumGothic);
-        list_item_translated.setTypeface(NanumGothic);
+        list_item_untranslated.setTypeface(SplashScreen.Fonts.NanumGothic);
+        list_item_translated.setTypeface(SplashScreen.Fonts.NanumGothic);
     }
 
     public void setUntranslated(String name) {

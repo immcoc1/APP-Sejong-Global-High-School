@@ -16,7 +16,6 @@ public class ItemMainView extends LinearLayout {
     TextView list_item_name;
     TextView list_item_author;
 
-    Typeface NanumGothic = Typeface.createFromAsset(getContext().getAssets(), "fonts/NanumBarunGothic.ttf");
 
 
     public ItemMainView(Context context) {
@@ -36,8 +35,8 @@ public class ItemMainView extends LinearLayout {
         list_item_name = (TextView) findViewById(R.id.list_item_name);
         list_item_author = (TextView) findViewById(R.id.list_item_author);
 
-        list_item_author.setTypeface(NanumGothic);
-        list_item_name.setTypeface(NanumGothic);
+        list_item_author.setTypeface(SplashScreen.Fonts.NanumGothic);
+        list_item_name.setTypeface(SplashScreen.Fonts.NanumGothic);
     }
 
     public void setName(String name) {

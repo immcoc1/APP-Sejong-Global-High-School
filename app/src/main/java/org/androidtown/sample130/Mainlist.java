@@ -83,8 +83,7 @@ public class Mainlist extends AppCompatActivity {
         setContentView(R.layout.activity_mainlist);
 
         TextView mainlist_logo_text = (TextView)findViewById(R.id.mainlist_logo_text);
-        Typeface NanumGothic = Typeface.createFromAsset(getApplication().getAssets(), "fonts/NanumBarunGothic.ttf");
-        mainlist_logo_text.setTypeface(NanumGothic);
+        mainlist_logo_text.setTypeface(SplashScreen.Fonts.NanumGothic);
 
 
         MySQLiteOpenHelper helper;
