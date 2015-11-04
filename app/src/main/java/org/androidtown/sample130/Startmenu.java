@@ -104,6 +104,12 @@ public class Startmenu extends AppCompatActivity {
 
     }
 
+    public void KSATlist_button_onClick(View v){
+        Intent intent = new Intent(getApplicationContext(), KSATList.class);
+        startActivity(intent);
+        finish();
+    }
+
     public void onBackPressed() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(false);

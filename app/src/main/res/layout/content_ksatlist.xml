@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+
+        android:background="#CC99FF">
+
+        <TextView
+            android:id="@+id/mainlist_logo_name"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="수능출제작품"
+            android:textColor="@color/abc_primary_text_disable_only_material_dark"
+            android:textSize="30dp"
+
+            />
+
+        <Button
+            android:id="@+id/backmain_button"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="right"
+
+            android:layout_margin="10dp"
+            android:background="@drawable/back_btn"
+            android:onClick="OnClickBackBtn" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/content_notYet"
+        android:background="@android:color/white"
+        >
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/construction_purple"
+        android:id="@+id/content_notYetImage"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="아직 준비가 안됬어요!"
+        android:layout_below="@id/content_notYetImage"
+        android:id="@+id/content_notYetText1"
+        android:layout_centerHorizontal="true"
+        android:textSize="20sp"
+        android:layout_margin="10dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="빠른 시일 내에 준비하겠습니다!"
+        android:layout_below="@id/content_notYetText1"
+        android:id="@+id/content_notYetText2"
+        android:layout_centerHorizontal="true"
+        android:textSize="15sp"
+
+        android:textColor="@android:color/darker_gray"
+        />
+    </RelativeLayout>
+
+</LinearLayout>
