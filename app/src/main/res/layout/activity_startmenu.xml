@@ -58,13 +58,31 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:text="듁님에\n병이 깁퍼"
-        android:textColor="#FF6600"
+        android:textStyle="bold"
+        android:textColor="#663300"
         android:gravity="center"
-        android:textSize="50dp"
+        android:textSize="80dp"
         android:lineSpacingExtra="15dip"
         android:layout_alignRight="@+id/mainlistEnter_button"
         android:layout_alignEnd="@+id/mainlistEnter_button"
-        android:layout_above="@+id/mainlistEnter_button" />
+        android:layout_above="@+id/startmenuLogo2_textview" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/startmenuLogo2_textview"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:text="고전시가 모음집"
+        android:textStyle="bold"
+        android:textColor="#F59000"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:lineSpacingExtra="15dip"
+        android:layout_alignRight="@+id/mainlistEnter_button"
+        android:layout_alignEnd="@+id/mainlistEnter_button"
+        android:layout_above="@+id/mainlistEnter_button"
+        android:layout_marginBottom="20dp"/>
 
 
 </RelativeLayout>
