@@ -15,7 +15,7 @@
         android:background="#FFC19E">
 
         <TextView
-            android:id="@+id/mainlist_logo_name"
+            android:id="@+id/ksatlistLogo_textview"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"

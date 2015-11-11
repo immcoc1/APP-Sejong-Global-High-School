@@ -26,7 +26,7 @@ public class ContentActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_content);
 
-        TextView logoName_textview = (TextView) findViewById(R.id.mainlist_logo_name);
+        TextView logoName_textview = (TextView) findViewById(R.id.ksatlistLogo_textview);
 
 
         TextView detailTexttview = (TextView) findViewById(R.id.detail_textview);
@@ -40,6 +40,8 @@ public class ContentActivity extends AppCompatActivity {
             mySetText(R.string.공무도하가_main, R.string.공무도하가_author, R.string.공무도하가_genre, R.string.공무도하가_epoch, R.string.공무도하가_topic, R.string.공무도하가_characteristic, R.string.공무도하가_detail);
         } else if (name.equals("구지가")){
             mySetText(R.string.구지가_main, R.string.구지가_author, R.string.구지가_genre, R.string.구지가_epoch, R.string.구지가_topic, R.string.구지가_characteristic, R.string.구지가_detail);
+        } else if (name.equals("정읍사")){
+            mySetText(R.string.정읍사_main, R.string.정읍사_author, R.string.정읍사_genre, R.string.정읍사_epoch, R.string.정읍사_topic, R.string.정읍사_characteristic, R.string.구지가_detail);
         } else {
             RelativeLayout notYet = (RelativeLayout) findViewById(R.id.content_notYet);
             notYet.setVisibility(View.VISIBLE);

@@ -10,9 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class ContentLongActivity extends AppCompatActivity {
 
@@ -24,7 +22,7 @@ public class ContentLongActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_content_long);
 
-        TextView logoName_textview = (TextView) findViewById(R.id.mainlist_logo_name);
+        TextView logoName_textview = (TextView) findViewById(R.id.ksatlistLogo_textview);
 
         Button questionBtn_button = (Button) findViewById(R.id.questionBtn_content);
 
