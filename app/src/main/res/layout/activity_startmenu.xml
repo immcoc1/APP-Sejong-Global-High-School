@@ -12,35 +12,35 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="작품 목록"
-        android:id="@+id/mainlist_button"
+        android:id="@+id/mainlistEnter_button"
         android:textSize="40dp"
         android:paddingTop="20dp"
         android:paddingBottom="20dp"
         android:onClick="mainlist_button_onClick"
         android:background="#55663300"
         android:textColor="#ffffffff"
-        android:layout_above="@+id/mylist_button"
+        android:layout_above="@+id/mylistEnter_button"
         android:layout_alignParentLeft="true" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="내 목록"
-        android:id="@+id/mylist_button"
+        android:id="@+id/mylistEnter_button"
         android:textSize="40dp"
         android:paddingTop="20dp"
         android:paddingBottom="20dp"
         android:onClick="mylist_button_onClick"
         android:background="#77663300"
         android:textColor="#ffffffff"
-        android:layout_above="@+id/KSATlist_button"
+        android:layout_above="@+id/ksatEnter_button"
         android:layout_alignParentLeft="true" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="수능 출제 목록"
-        android:id="@+id/KSATlist_button"
+        android:id="@+id/ksatEnter_button"
         android:textSize="40dp"
         android:paddingTop="20dp"
         android:paddingBottom="20dp"
@@ -50,16 +50,21 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true" />
 
-    <ImageView
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageView"
+        android:id="@+id/startmenuLogo_textview"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/mainlist_button"
-        android:layout_alignEnd="@+id/mainlist_button"
-        android:layout_above="@+id/mainlist_button" />
+        android:text="듁님에\n병이 깁퍼"
+        android:textColor="#FF6600"
+        android:gravity="center"
+        android:textSize="50dp"
+        android:lineSpacingExtra="15dip"
+        android:layout_alignRight="@+id/mainlistEnter_button"
+        android:layout_alignEnd="@+id/mainlistEnter_button"
+        android:layout_above="@+id/mainlistEnter_button" />
 
 
 </RelativeLayout>

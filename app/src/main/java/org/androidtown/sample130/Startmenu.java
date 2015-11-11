@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class Startmenu extends AppCompatActivity {
 
@@ -24,45 +25,18 @@ public class Startmenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_startmenu);
 
-        Typeface NanumGothic = Typeface.createFromAsset(getAssets(), "fonts/NanumBarunGothic.ttf");
 
-        Button mainlist_button = (Button) findViewById(R.id.mainlist_button);
-        Button mylist_button = (Button) findViewById(R.id.mylist_button);
-        Button sunneunglist_button = (Button) findViewById(R.id.KSATlist_button);
+        Button mainlist_button = (Button) findViewById(R.id.mainlistEnter_button);
+        Button mylist_button = (Button) findViewById(R.id.mylistEnter_button);
+        Button sunneunglist_button = (Button) findViewById(R.id.ksatEnter_button);
+        TextView startmenuLogo_textview = (TextView)findViewById(R.id.startmenuLogo_textview);
 
-        mainlist_button.setTypeface(NanumGothic);
-        mylist_button.setTypeface(NanumGothic);
-        sunneunglist_button.setTypeface(NanumGothic);
+        mainlist_button.setTypeface(SplashScreen.Fonts.NanumGothic);
+        mylist_button.setTypeface(SplashScreen.Fonts.NanumGothic);
+        sunneunglist_button.setTypeface(SplashScreen.Fonts.NanumGothic);
+        startmenuLogo_textview.setTypeface(SplashScreen.Fonts.NanumPen);
 
-        MySQLiteOpenHelper helper;
-        helper = new MySQLiteOpenHelper(getApplicationContext(), Mainlist.DATABASE_NAME, null, Mainlist.DATABASE_VERSION);
-        SQLiteDatabase db = helper.getWritableDatabase();
 
-        for (int i = 0; i < Mainlist.genre_main.length; i++) {
-
-            String sql = "select name, author from "
-                    + MySQLiteOpenHelper.DATABASE_TABLE_NAME
-                    + " where genre = '"
-                    + Mainlist.genre_main[i]
-                    + "'";
-            cursor = db.rawQuery(sql, null);
-
-            if (cursor != null) {
-                int count = cursor.getCount();
-                String[] temparray_name = new String[count + 1];
-                String[] temparray_author = new String[count + 1];
-                temparray_name[0] = "뒤로가기";
-                temparray_author[0] = "...";
-
-                for (int j = 1; j <= count; j++) {
-                    cursor.moveToNext();
-                    temparray_name[j] = cursor.getString(0);
-                    temparray_author[j] = cursor.getString(1);
-                }
-                Mainlist.제목[i] = temparray_name;
-                Mainlist.작가[i] = temparray_author;
-            }
-        }
 
     }
 

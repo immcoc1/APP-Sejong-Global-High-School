@@ -29,7 +29,7 @@ public class LongLitActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.content_long_lit);
+        setContentView(R.layout.activity_long_lit);
         Intent intent = getIntent();
         String name = intent.getExtras().getString("loading code");
 

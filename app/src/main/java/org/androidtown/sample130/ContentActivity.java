@@ -10,17 +10,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import org.w3c.dom.Text;
 
 public class ContentActivity extends AppCompatActivity {
 
-    String fromwhere;
+    String fromWhere;
     Intent getIntent;
 
     @Override
@@ -34,8 +29,8 @@ public class ContentActivity extends AppCompatActivity {
         TextView logoName_textview = (TextView) findViewById(R.id.mainlist_logo_name);
 
 
-        TextView detail_texttview = (TextView) findViewById(R.id.detail_textview);
-        Button questionBtn_button = (Button) findViewById(R.id.questionBtn_content);
+        TextView detailTexttview = (TextView) findViewById(R.id.detail_textview);
+        Button questionBtnButton = (Button) findViewById(R.id.questionBtn_content);
 
         logoName_textview.setText(name);
 
@@ -80,13 +75,13 @@ public class ContentActivity extends AppCompatActivity {
     public void OnClickBackBtn(View v) {
 
         getIntent = getIntent();
-        fromwhere = getIntent.getExtras().getString("start from");
+        fromWhere = getIntent.getExtras().getString("start from");
 
-        if(fromwhere.equals("Mainlist")) {
+        if(fromWhere.equals("Mainlist")) {
             Intent intent = new Intent(getApplicationContext(), Mainlist.class);
             startActivity(intent);
             finish();
-        } else if (fromwhere.equals("Mylist")){
+        } else if (fromWhere.equals("Mylist")){
             Intent intent = new Intent(getApplicationContext(), Mylist.class);
             startActivity(intent);
             finish();

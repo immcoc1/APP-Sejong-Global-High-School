@@ -4,15 +4,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.os.Bundle;
 import android.os.Handler;
 import android.widget.TextView;
 
@@ -26,11 +20,43 @@ public class SplashScreen extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.content_splash_screen);
+        setContentView(R.layout.activity_splash_screen);
         initializeTypeface();
+
+        Cursor cursor;
 
         TextView splash_screen_logo = (TextView)findViewById(R.id.splash_screen_logo);
         splash_screen_logo.setTypeface(Fonts.NanumGothic);
+
+        MySQLiteOpenHelper helper;
+        helper = new MySQLiteOpenHelper(getApplicationContext(), Mainlist.DATABASE_NAME, null, Mainlist.DATABASE_VERSION);
+        SQLiteDatabase db = helper.getWritableDatabase();
+
+        for (int i = 0; i < Mainlist.genre_main.length; i++) {
+
+            String sql = "select name, author from "
+                    + MySQLiteOpenHelper.DATABASE_TABLE_NAME
+                    + " where genre = '"
+                    + Mainlist.genre_main[i]
+                    + "'";
+            cursor = db.rawQuery(sql, null);
+
+            if (cursor != null) {
+                int count = cursor.getCount();
+                String[] temparray_name = new String[count + 1];
+                String[] temparray_author = new String[count + 1];
+                temparray_name[0] = "뒤로가기";
+                temparray_author[0] = "...";
+
+                for (int j = 1; j <= count; j++) {
+                    cursor.moveToNext();
+                    temparray_name[j] = cursor.getString(0);
+                    temparray_author[j] = cursor.getString(1);
+                }
+                Mainlist.제목[i] = temparray_name;
+                Mainlist.작가[i] = temparray_author;
+            }
+        }
 
 
 
@@ -55,11 +81,13 @@ public class SplashScreen extends Activity {
 
     public static class Fonts {
         public static Typeface NanumGothic;
+        public static Typeface NanumPen;
     }
 
 
     private void initializeTypeface() {
         Fonts.NanumGothic = Typeface.createFromAsset(getAssets(), "fonts/NanumBarunGothic.ttf");
+        Fonts.NanumPen = Typeface.createFromAsset(getAssets(), "fonts/NanumPen.ttf");
     }
 
 }

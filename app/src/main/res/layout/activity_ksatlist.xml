@@ -1,25 +1,78 @@
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:fitsSystemWindows="true"
-    tools:context="org.androidtown.sample130.KSATList">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
 
-    <android.support.design.widget.AppBarLayout android:layout_height="wrap_content"
-        android:layout_width="match_parent" android:theme="@style/AppBarOverlay">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
 
-        <android.support.v7.widget.Toolbar android:id="@+id/toolbar"
-            android:layout_width="match_parent" android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary" app:popupTheme="@style/PopupOverlay" />
+        android:background="#CC99FF">
 
-    </android.support.design.widget.AppBarLayout>
+        <TextView
+            android:id="@+id/mainlist_logo_name"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="수능출제작품"
+            android:textColor="@color/abc_primary_text_disable_only_material_dark"
+            android:textSize="30dp"
 
-    <include layout="@layout/content_ksatlist" />
+            />
 
-    <android.support.design.widget.FloatingActionButton android:id="@+id/fab"
-        android:layout_width="wrap_content" android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end" android:layout_margin="@dimen/fab_margin"
-        android:src="@android:drawable/ic_dialog_email" />
+        <Button
+            android:id="@+id/backmain_button"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="right"
 
-</android.support.design.widget.CoordinatorLayout>
+            android:layout_margin="10dp"
+            android:background="@drawable/back_btn"
+            android:onClick="OnClickBackBtn" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/content_notYet"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white">
+
+        <ImageView
+            android:id="@+id/content_notYetImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/construction_purple" />
+
+        <TextView
+            android:id="@+id/content_notYetText1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/content_notYetImage"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:text="아직 준비가 안됬어요!"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/content_notYetText2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/content_notYetText1"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:text="빠른 시일 내에 준비하겠습니다!"
+            android:textColor="@android:color/darker_gray"
+
+            android:textSize="15sp" />
+    </RelativeLayout>
+
+</LinearLayout>
