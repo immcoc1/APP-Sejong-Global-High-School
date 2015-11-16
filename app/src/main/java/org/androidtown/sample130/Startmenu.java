@@ -4,8 +4,6 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -31,9 +29,9 @@ public class Startmenu extends AppCompatActivity {
         Button sunneunglist_button = (Button) findViewById(R.id.ksatEnter_button);
         TextView startmenuLogo_textview = (TextView)findViewById(R.id.startmenuLogo_textview);
 
-        mainlist_button.setTypeface(SplashScreen.Fonts.NanumGothic);
-        mylist_button.setTypeface(SplashScreen.Fonts.NanumGothic);
-        sunneunglist_button.setTypeface(SplashScreen.Fonts.NanumGothic);
+        mainlist_button.setTypeface(SplashScreen.Fonts.NanumPen);
+        mylist_button.setTypeface(SplashScreen.Fonts.NanumPen);
+        sunneunglist_button.setTypeface(SplashScreen.Fonts.NanumPen);
         startmenuLogo_textview.setTypeface(SplashScreen.Fonts.NanumPen);
 
 
@@ -64,7 +62,7 @@ public class Startmenu extends AppCompatActivity {
 
     public void mainlist_button_onClick(View v) {
 
-        Intent intent = new Intent(getApplicationContext(), Mainlist.class);
+        Intent intent = new Intent(getApplicationContext(), MainlistActivity.class);
         startActivity(intent);
         finish();
 
@@ -72,14 +70,14 @@ public class Startmenu extends AppCompatActivity {
 
     public void mylist_button_onClick(View v) {
 
-        Intent intent = new Intent(getApplicationContext(), Mylist.class);
+        Intent intent = new Intent(getApplicationContext(), MylistActivity.class);
         startActivity(intent);
         finish();
 
     }
 
     public void KSATlist_button_onClick(View v){
-        Intent intent = new Intent(getApplicationContext(), KSATList.class);
+        Intent intent = new Intent(getApplicationContext(), KSATListActivity.class);
         startActivity(intent);
         finish();
     }

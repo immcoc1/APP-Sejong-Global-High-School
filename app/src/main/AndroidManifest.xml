@@ -28,11 +28,11 @@
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Mainlist"
+            android:name=".MainlistActivity"
             android:label="@string/title_activity_mainlist"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Mylist"
+            android:name=".MylistActivity"
             android:label="@string/title_activity_mylist"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
@@ -48,7 +48,7 @@
             android:label="@string/title_activity_content_long2"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".KSATList"
+            android:name=".KSATListActivity"
             android:label="@string/title_activity_ksatlist"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>

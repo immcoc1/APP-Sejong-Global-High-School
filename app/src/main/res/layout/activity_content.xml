@@ -5,7 +5,7 @@
     android:orientation="vertical"
 
 
-    tools:context="org.androidtown.sample130.Mainlist">
+    tools:context="org.androidtown.sample130.MainlistActivity">
 
 
 

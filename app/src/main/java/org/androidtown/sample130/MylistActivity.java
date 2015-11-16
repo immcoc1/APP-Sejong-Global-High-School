@@ -22,7 +22,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class Mylist extends AppCompatActivity {
+public class MylistActivity extends AppCompatActivity {
 
     ListView mylist_listview;
 
@@ -40,9 +40,12 @@ public class Mylist extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mylist);
 
+        TextView mylistLogo_textview = (TextView)findViewById(R.id.mylistLogo_textview);
+        mylistLogo_textview.setTypeface(SplashScreen.Fonts.NanumPen);
+
 
         MySQLiteOpenHelper helper;
-        helper = new MySQLiteOpenHelper(getApplicationContext(), Mainlist.DATABASE_NAME, null, Mainlist.DATABASE_VERSION);
+        helper = new MySQLiteOpenHelper(getApplicationContext(), MainlistActivity.DATABASE_NAME, null, MainlistActivity.DATABASE_VERSION);
         SQLiteDatabase db = helper.getWritableDatabase();
 
 
@@ -116,8 +119,8 @@ public class Mylist extends AppCompatActivity {
                     // 클릭한 항목의 '이름'을 가져옴 (화면에 보이는 글임)
 
 
-                    for (int i = 0; i < Mainlist.long_literature_list.length; i++) {
-                        if (Mainlist.long_literature_list[i] == name) {
+                    for (int i = 0; i < MainlistActivity.long_literature_list.length; i++) {
+                        if (MainlistActivity.long_literature_list[i] == name) {
                             Intent intent = new Intent(getApplicationContext(), ContentLongActivity.class);
                             intent.putExtra("loading code", name);
                             intent.putExtra("start from", "Mylist");
@@ -155,7 +158,7 @@ public class Mylist extends AppCompatActivity {
 
                     }
 
-                    AlertDialog.Builder builder = new AlertDialog.Builder(new ContextThemeWrapper(Mylist.this, R.style.AlertDialog_AppCompat_Light));
+                    AlertDialog.Builder builder = new AlertDialog.Builder(new ContextThemeWrapper(MylistActivity.this, R.style.AlertDialog_AppCompat_Light));
                     temp_LongClick = name;
 
                     // 여기서 부터는 알림창의 속성 설정
@@ -175,7 +178,7 @@ public class Mylist extends AppCompatActivity {
                                     ContentValues values = new ContentValues();
                                     values.put("isBookmarked", 0);
                                     MySQLiteOpenHelper helper;
-                                    helper = new MySQLiteOpenHelper(getApplicationContext(), Mainlist.DATABASE_NAME, null, Mainlist.DATABASE_VERSION);
+                                    helper = new MySQLiteOpenHelper(getApplicationContext(), MainlistActivity.DATABASE_NAME, null, MainlistActivity.DATABASE_VERSION);
                                     SQLiteDatabase db = helper.getWritableDatabase();
 
                                     db.update(MySQLiteOpenHelper.DATABASE_TABLE_NAME, values, "name='" + temp_LongClick + "'", null);

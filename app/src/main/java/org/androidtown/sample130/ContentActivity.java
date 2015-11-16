@@ -80,11 +80,11 @@ public class ContentActivity extends AppCompatActivity {
         fromWhere = getIntent.getExtras().getString("start from");
 
         if(fromWhere.equals("Mainlist")) {
-            Intent intent = new Intent(getApplicationContext(), Mainlist.class);
+            Intent intent = new Intent(getApplicationContext(), MainlistActivity.class);
             startActivity(intent);
             finish();
         } else if (fromWhere.equals("Mylist")){
-            Intent intent = new Intent(getApplicationContext(), Mylist.class);
+            Intent intent = new Intent(getApplicationContext(), MylistActivity.class);
             startActivity(intent);
             finish();
         }

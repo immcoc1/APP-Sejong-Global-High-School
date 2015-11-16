@@ -9,13 +9,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
-public class KSATList extends AppCompatActivity {
+public class KSATListActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ksatlist);
+
+        TextView ksatlistLogo_textview = (TextView)findViewById(R.id.ksatlistLogo_textview);
+        ksatlistLogo_textview.setTypeface(SplashScreen.Fonts.NanumPen);
 
     }
 

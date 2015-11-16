@@ -29,15 +29,15 @@ public class SplashScreen extends Activity {
         splash_screen_logo.setTypeface(Fonts.NanumGothic);
 
         MySQLiteOpenHelper helper;
-        helper = new MySQLiteOpenHelper(getApplicationContext(), Mainlist.DATABASE_NAME, null, Mainlist.DATABASE_VERSION);
+        helper = new MySQLiteOpenHelper(getApplicationContext(), MainlistActivity.DATABASE_NAME, null, MainlistActivity.DATABASE_VERSION);
         SQLiteDatabase db = helper.getWritableDatabase();
 
-        for (int i = 0; i < Mainlist.genre_main.length; i++) {
+        for (int i = 0; i < MainlistActivity.genre_main.length; i++) {
 
             String sql = "select name, author from "
                     + MySQLiteOpenHelper.DATABASE_TABLE_NAME
                     + " where genre = '"
-                    + Mainlist.genre_main[i]
+                    + MainlistActivity.genre_main[i]
                     + "'";
             cursor = db.rawQuery(sql, null);
 
@@ -53,8 +53,8 @@ public class SplashScreen extends Activity {
                     temparray_name[j] = cursor.getString(0);
                     temparray_author[j] = cursor.getString(1);
                 }
-                Mainlist.제목[i] = temparray_name;
-                Mainlist.작가[i] = temparray_author;
+                MainlistActivity.제목[i] = temparray_name;
+                MainlistActivity.작가[i] = temparray_author;
             }
         }
 

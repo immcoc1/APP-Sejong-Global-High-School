@@ -1,18 +1,13 @@
 package org.androidtown.sample130;
 
-import android.app.Activity;
 import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.graphics.Typeface;
-import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.ContextThemeWrapper;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -26,7 +21,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class Mainlist extends AppCompatActivity {
+public class MainlistActivity extends AppCompatActivity {
 
     //------------DATABASE 상수-------------
 
@@ -72,6 +67,12 @@ public class Mainlist extends AppCompatActivity {
 
 
 
+
+
+
+
+
+
 /*------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------
  */
@@ -82,8 +83,8 @@ public class Mainlist extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mainlist);
 
-        TextView mainlist_logo_text = (TextView)findViewById(R.id.mainlist_logo_text);
-        mainlist_logo_text.setTypeface(SplashScreen.Fonts.NanumGothic);
+        TextView mainlistLogo_textview = (TextView)findViewById(R.id.mainlistLogo_textview);
+        mainlistLogo_textview.setTypeface(SplashScreen.Fonts.NanumPen);
 
 
         MySQLiteOpenHelper helper;
@@ -255,7 +256,7 @@ public class Mainlist extends AppCompatActivity {
 
                         }
 
-                        AlertDialog.Builder builder = new AlertDialog.Builder(new ContextThemeWrapper(Mainlist.this, R.style.AlertDialog_AppCompat_Light));
+                        AlertDialog.Builder builder = new AlertDialog.Builder(new ContextThemeWrapper(MainlistActivity.this, R.style.AlertDialog_AppCompat_Light));
                         temp_LongClick = name;
 
                         // 여기서 부터는 알림창의 속성 설정
