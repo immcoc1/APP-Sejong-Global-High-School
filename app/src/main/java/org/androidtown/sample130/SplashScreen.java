@@ -53,8 +53,7 @@ public class SplashScreen extends Activity {
                 String[] temparray_author=new String[count];
                 for(int j=0;j<count;j++){
                     cursor2.moveToNext();
-                    jakja=cursor2.getString(1);
-                    temparray_name[j] = cursor2.getString(0)+" ("+jakja+")";
+                    temparray_name[j] = cursor2.getString(0);
                     temparray_author[j] = cursor2.getString(1);
                 }
                 SearchActivity.제목=temparray_name;
