@@ -29,10 +29,10 @@ public class Startmenu extends AppCompatActivity {
         Button sunneunglist_button = (Button) findViewById(R.id.ksatEnter_button);
         TextView startmenuLogo_textview = (TextView)findViewById(R.id.startmenuLogo_textview);
 
-        mainlist_button.setTypeface(SplashScreen.Fonts.NanumPen);
+       /* mainlist_button.setTypeface(SplashScreen.Fonts.NanumPen);
         mylist_button.setTypeface(SplashScreen.Fonts.NanumPen);
         sunneunglist_button.setTypeface(SplashScreen.Fonts.NanumPen);
-        startmenuLogo_textview.setTypeface(SplashScreen.Fonts.NanumPen);
+        startmenuLogo_textview.setTypeface(SplashScreen.Fonts.NanumPen);*/ // 기본폰트가 나은것같네..
 
 
 
@@ -82,26 +82,15 @@ public class Startmenu extends AppCompatActivity {
         finish();
     }
 
+    public void Search_button_onClick(View v){
+        Intent intent = new Intent(getApplicationContext(), SearchActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+
     public void onBackPressed() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setCancelable(false);
-        builder.setMessage("앱을 종료하시겠습니까?");
-        builder.setPositiveButton("네", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                //if user pressed "yes", then he is allowed to exit from application
-                finish();
-            }
-        });
-        builder.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                //if user select "No", just cancel this dialog and continue with app
-                dialog.cancel();
-            }
-        });
-        AlertDialog alert = builder.create();
-        alert.show();
+       finish();
     }
 }
 

@@ -24,25 +24,9 @@ public class KSATListActivity extends AppCompatActivity {
     }
 
     public void onBackPressed() {
-        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(this);
-        builder.setCancelable(false);
-        builder.setMessage("앱을 종료하시겠습니까?");
-        builder.setPositiveButton("네", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                //if user pressed "yes", then he is allowed to exit from application
-                finish();
-            }
-        });
-        builder.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                //if user select "No", just cancel this dialog and continue with app
-                dialog.cancel();
-            }
-        });
-        android.app.AlertDialog alert = builder.create();
-        alert.show();
+        Intent intent = new Intent(getApplicationContext(),Startmenu.class);
+        startActivity(intent);
+        finish();
     }
 
     public void OnClickBackBtn(View v) {

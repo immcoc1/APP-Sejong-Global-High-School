@@ -282,7 +282,7 @@
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:layout_margin="40dp"
-                android:onClick="OnClickQuestionBtn"
+                android:onClick="OnClickSatBtn"
                 android:paddingLeft="30dp"
                 android:paddingRight="30dp"
                 android:paddingTop="20dp"
@@ -293,6 +293,24 @@
                 android:background="@android:color/holo_orange_light"
                 android:textSize="25dp"
                 />
+
+            <Button
+                android:id="@+id/bookmarkBtn_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_margin="40dp"
+                android:onClick="OnClickBookmarkBtn"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
+                android:text="내 작품에 추가"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:background="@android:color/holo_orange_light"
+                android:textSize="25dp" />
 
         </LinearLayout>
 

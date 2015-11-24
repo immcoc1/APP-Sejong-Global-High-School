@@ -52,6 +52,11 @@
             android:label="@string/title_activity_ksatlist"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
+        <activity
+            android:name=".SearchActivity"
+            android:label="activity_search"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
     </application>
 
 </manifest>

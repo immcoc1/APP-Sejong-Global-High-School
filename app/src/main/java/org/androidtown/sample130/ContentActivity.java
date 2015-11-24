@@ -1,28 +1,38 @@
 package org.androidtown.sample130;
 
 import android.app.AlertDialog;
+import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.ContextThemeWrapper;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ContentActivity extends AppCompatActivity {
 
     String fromWhere;
     Intent getIntent;
+    String name;
+
+    //------------DATABASE 상수-------------
+
+    public static final String DATABASE_NAME = "LiteratureDatabase.db";
+    public static final int DATABASE_VERSION = 5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getIntent = getIntent();
-        String name = getIntent.getExtras().getString("loading code");
+        name = getIntent.getExtras().getString("loading code");
 
         setContentView(R.layout.activity_content);
 
@@ -46,6 +56,9 @@ public class ContentActivity extends AppCompatActivity {
             RelativeLayout notYet = (RelativeLayout) findViewById(R.id.content_notYet);
             notYet.setVisibility(View.VISIBLE);
         }
+        MySQLiteOpenHelper helper;
+        helper = new MySQLiteOpenHelper(getApplicationContext(), DATABASE_NAME, null, DATABASE_VERSION);
+        SQLiteDatabase db = helper.getWritableDatabase();
 
 
         //----------------------------------------------------------------------
@@ -75,20 +88,66 @@ public class ContentActivity extends AppCompatActivity {
     }
 
     public void OnClickBackBtn(View v) {
-
-        getIntent = getIntent();
-        fromWhere = getIntent.getExtras().getString("start from");
-
-        if(fromWhere.equals("Mainlist")) {
-            Intent intent = new Intent(getApplicationContext(), MainlistActivity.class);
-            startActivity(intent);
-            finish();
-        } else if (fromWhere.equals("Mylist")){
-            Intent intent = new Intent(getApplicationContext(), MylistActivity.class);
-            startActivity(intent);
-            finish();
-        }
+        backward();
     }
+    public void OnClickSatBtn(View v) {
+
+        Toast.makeText(getApplicationContext(), "죄송합니다. 준비중입니다.", Toast.LENGTH_SHORT).show();
+    }
+
+    public void OnClickBookmarkBtn(View v) {
+
+        android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(new ContextThemeWrapper(ContentActivity.this, R.style.AlertDialog_AppCompat_Light));
+
+        // 여기서 부터는 알림창의 속성 설정
+
+        builder.setTitle("북마크")        // 제목 설정
+
+                .setMessage(name + "을(를) 내 작품에 등록하시겠습니까?")        // 메세지 설정
+
+                .setCancelable(false)        // 뒤로 버튼 클릭시 취소 가능 설정
+
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+
+                    // 확인 버튼 클릭시 설정
+
+                    public void onClick(DialogInterface dialog, int whichButton) {
+
+                        ContentValues values = new ContentValues();
+                        values.put("isBookmarked", 1);
+                        MySQLiteOpenHelper helper;
+                        helper = new MySQLiteOpenHelper(getApplicationContext(), DATABASE_NAME, null, DATABASE_VERSION);
+                        SQLiteDatabase db = helper.getWritableDatabase();
+
+                        db.update(MySQLiteOpenHelper.DATABASE_TABLE_NAME, values, "name='" + name + "'", null);
+
+                        Toast.makeText(getApplicationContext(), name + "이(가) 내 작품에 등록되었습니다.", Toast.LENGTH_LONG).show();
+                                       /* String sql = "select isBookmarked from "
+                                                + MySQLiteOpenHelper.DATABASE_TABLE_NAME
+                                                + " where name = '"
+                                                + temp_LongClick
+                                                + "'";*/
+                    }
+                })
+
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+
+                    // 취소 버튼 클릭시 설정
+
+                    public void onClick(DialogInterface dialog, int whichButton) {
+
+                        dialog.cancel();
+
+                    }
+
+                });
+
+        android.support.v7.app.AlertDialog dialog = builder.create();    // 알림창 객체 생성
+        dialog.show();    // 알림창 띄우기
+        //내 작품 목록으로 넣을 지 알림창 만들기
+    }
+
+
 
     private void mySetText(int main, int author, int genre, int epoch, int topic, int characteristic) {
 
@@ -151,24 +210,26 @@ public class ContentActivity extends AppCompatActivity {
     }
 
     public void onBackPressed() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setCancelable(false);
-        builder.setMessage("앱을 종료하시겠습니까?");
-        builder.setPositiveButton("네", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                //if user pressed "yes", then he is allowed to exit from application
-                finish();
-            }
-        });
-        builder.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                //if user select "No", just cancel this dialog and continue with app
-                dialog.cancel();
-            }
-        });
-        AlertDialog alert = builder.create();
-        alert.show();
+        backward();
+    }
+
+    public void backward(){
+        getIntent = getIntent();
+        fromWhere = getIntent.getExtras().getString("start from");
+
+        if(fromWhere.equals("Mainlist")) {
+            Intent intent = new Intent(getApplicationContext(), MainlistActivity.class);
+            startActivity(intent);
+            finish();
+        } else if (fromWhere.equals("Mylist")){
+            Intent intent = new Intent(getApplicationContext(), MylistActivity.class);
+            startActivity(intent);
+            finish();
+        }
+        else if (fromWhere.equals("Searchlist")){
+            Intent intent = new Intent(getApplicationContext(), SearchActivity.class);
+            startActivity(intent);
+            finish();
+        }
     }
 }

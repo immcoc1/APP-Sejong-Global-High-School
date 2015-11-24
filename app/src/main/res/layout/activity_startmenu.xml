@@ -11,78 +11,86 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="작품 목록"
+        android:text="작품 검색"
+        android:id="@+id/button"
+        android:textSize="24dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:onClick="Search_button_onClick"
+        android:background="#55b77a3e"
+        android:textColor="#ffffffff"
+        android:textStyle="bold"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_above="@+id/mainlistEnter_button" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="카테고리"
         android:id="@+id/mainlistEnter_button"
-        android:textSize="40dp"
+        android:textSize="24dp"
         android:paddingTop="20dp"
         android:paddingBottom="20dp"
         android:onClick="mainlist_button_onClick"
         android:background="#55663300"
         android:textColor="#ffffffff"
+        android:textStyle="bold"
         android:layout_above="@+id/mylistEnter_button"
-        android:layout_alignParentLeft="true" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="내 목록"
         android:id="@+id/mylistEnter_button"
-        android:textSize="40dp"
+        android:textSize="24dp"
         android:paddingTop="20dp"
         android:paddingBottom="20dp"
         android:onClick="mylist_button_onClick"
         android:background="#77663300"
         android:textColor="#ffffffff"
         android:layout_above="@+id/ksatEnter_button"
-        android:layout_alignParentLeft="true" />
+        android:layout_alignParentLeft="true"
+        android:textStyle="bold" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="수능 출제 목록"
         android:id="@+id/ksatEnter_button"
-        android:textSize="40dp"
+        android:textSize="24dp"
         android:paddingTop="20dp"
         android:paddingBottom="20dp"
         android:onClick="KSATlist_button_onClick"
         android:background="#99663300"
         android:textColor="#ffffffff"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true" />
+        android:layout_alignParentLeft="true"
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/startmenuLogo_textview"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:text="듁님에\n병이 깁퍼"
-        android:textStyle="bold"
-        android:textColor="#663300"
-        android:gravity="center"
-        android:textSize="80dp"
-        android:lineSpacingExtra="15dip"
-        android:layout_alignRight="@+id/mainlistEnter_button"
-        android:layout_alignEnd="@+id/mainlistEnter_button"
-        android:layout_above="@+id/startmenuLogo2_textview" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/startmenuLogo2_textview"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:text="고전시가 모음집"
         android:textStyle="bold"
         android:textColor="#F59000"
         android:gravity="center"
-        android:textSize="20dp"
+        android:textSize="32dp"
         android:lineSpacingExtra="15dip"
-        android:layout_alignRight="@+id/mainlistEnter_button"
-        android:layout_alignEnd="@+id/mainlistEnter_button"
-        android:layout_above="@+id/mainlistEnter_button"
-        android:layout_marginBottom="20dp"/>
+        android:layout_marginBottom="5dp"
+        android:layout_above="@+id/button"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:src="@drawable/icon"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/startmenuLogo_textview" />
 
 
 </RelativeLayout>

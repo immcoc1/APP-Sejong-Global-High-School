@@ -87,13 +87,13 @@ public class MylistActivity extends AppCompatActivity {
             }
         } else {
 
-            Toast.makeText(getApplicationContext(), "null cursor", Toast.LENGTH_LONG).show();
+
         }
 
         for (int i = 0; i < 제목.length; i++) {
             test += 제목[i];
         }
-        Toast.makeText(getApplicationContext(), test, Toast.LENGTH_LONG).show();
+
 
 
         myListViewAdapter_main();
@@ -244,7 +244,7 @@ public class MylistActivity extends AppCompatActivity {
 
                             });
 
-                    Toast.makeText(getApplicationContext(), "롱클릭됨", Toast.LENGTH_SHORT).show();
+
 
                     AlertDialog dialog = builder.create();    // 알림창 객체 생성
                     dialog.show();    // 알림창 띄우기
@@ -302,7 +302,7 @@ public class MylistActivity extends AppCompatActivity {
             mylist_listview.setAdapter(adapterMain);
 
         } else {
-            Toast.makeText(getApplicationContext(), "null", Toast.LENGTH_SHORT).show();
+
         }
     }
 
@@ -341,6 +341,12 @@ public class MylistActivity extends AppCompatActivity {
 
             return view;
         }
+    }
+
+    public void onBackPressed() {
+        Intent intent = new Intent(getApplicationContext(),Startmenu.class);
+        startActivity(intent);
+        finish();
     }
 }
 
