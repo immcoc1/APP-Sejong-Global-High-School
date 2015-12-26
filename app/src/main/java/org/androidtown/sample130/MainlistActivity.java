@@ -207,18 +207,18 @@ public class MainlistActivity extends AppCompatActivity {
 
                         } else {
 
-                            for (int i = 0; i < long_literature_list.length; i++) {
-                                if (long_literature_list[i] == name) {
-                                    Intent intent = new Intent(getApplicationContext(), ContentLongActivity.class);
-                                    intent.putExtra("loading code", name);
-                                    intent.putExtra("start from", "Mainlist");
-                                    startActivity(intent);
-                                    isGenre = true;
-                                    finish();
-
-                                    //만약 클릭한 작품이 '긴 작품'이면 ContentLongActivity 시작
-                                }
-                            }
+//                            for (int i = 0; i < long_literature_list.length; i++) {
+//                                if (long_literature_list[i] == name) {
+//                                    Intent intent = new Intent(getApplicationContext(), ContentLongActivity.class);
+//                                    intent.putExtra("loading code", name);
+//                                    intent.putExtra("start from", "Mainlist");
+//                                    startActivity(intent);
+//                                    isGenre = true;
+//                                    finish();
+//
+//                                    //만약 클릭한 작품이 '긴 작품'이면 ContentLongActivity 시작
+//                                }
+//                            }
 
                             Intent intent = new Intent(getApplicationContext(), ContentActivity.class);
                             intent.putExtra("loading code", name);

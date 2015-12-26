@@ -119,17 +119,17 @@ public class MylistActivity extends AppCompatActivity {
                     // 클릭한 항목의 '이름'을 가져옴 (화면에 보이는 글임)
 
 
-                    for (int i = 0; i < MainlistActivity.long_literature_list.length; i++) {
-                        if (MainlistActivity.long_literature_list[i] == name) {
-                            Intent intent = new Intent(getApplicationContext(), ContentLongActivity.class);
-                            intent.putExtra("loading code", name);
-                            intent.putExtra("start from", "Mylist");
-                            startActivity(intent);
-                            finish();
-
-                            //만약 클릭한 작품이 '긴 작품'이면 ContentLongActivity 시작
-                        }
-                    }
+//                    for (int i = 0; i < MainlistActivity.long_literature_list.length; i++) {
+//                        if (MainlistActivity.long_literature_list[i] == name) {
+//                            Intent intent = new Intent(getApplicationContext(), ContentLongActivity.class);
+//                            intent.putExtra("loading code", name);
+//                            intent.putExtra("start from", "Mylist");
+//                            startActivity(intent);
+//                            finish();
+//
+//                            //만약 클릭한 작품이 '긴 작품'이면 ContentLongActivity 시작
+//                        }
+//                    }
 
                     Intent intent = new Intent(getApplicationContext(), ContentActivity.class);
                     intent.putExtra("loading code", name);
