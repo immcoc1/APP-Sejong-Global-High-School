@@ -231,6 +231,48 @@
 
         </string>
 
+    <string name="해가_main">
+        거북아 거북아 수로를 내놓아라.           龜乎龜乎出水路 (구호구호출수로)\n
+
+남의 아내를 앗은 죄 그 얼마나 큰가 ?   掠人婦女罪何極 (약인부녀죄하극)\n
+
+네가 만일 어기어 내놓지 않으면,          汝若悖逆不出獻 (여약패역불출헌)\n
+
+그물로 잡아서 구워 먹으리.                 入網捕掠燔之喫 (입망포략번지끽)\n
+        </string>
+
+    <string name="해가_author">
+        미상
+    </string>
+
+    <string name="해가_genre">
+        고대가요
+    </string>
+
+    <string name="해가_epoch">
+        신라 성덕왕
+    </string>
+
+    <string name="해가_topic">
+        납치된 수로부인의 무사귀환을 기원함
+    </string>
+
+    <string name="해가_characteristic">
+         주술적, 집단적
+    </string>
+
+    <string name="해가_detail">
+ 형식 \n\n
+        * 7언 4구의 한역 시가\n
+
+
+        의의\n\n
+
+        * 구지가의 아류작, 노래의 내용과 형식이 매우 유사함 \n
+
+
+       </string>
+
 
     
     

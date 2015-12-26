@@ -52,7 +52,9 @@ public class ContentActivity extends AppCompatActivity {
             mySetText(R.string.구지가_main, R.string.구지가_author, R.string.구지가_genre, R.string.구지가_epoch, R.string.구지가_topic, R.string.구지가_characteristic, R.string.구지가_detail);
         } else if (name.equals("정읍사")){
             mySetText(R.string.정읍사_main, R.string.정읍사_author, R.string.정읍사_genre, R.string.정읍사_epoch, R.string.정읍사_topic, R.string.정읍사_characteristic, R.string.구지가_detail);
-        } else {
+        } else if (name.equals("해가")){
+            mySetText(R.string.해가_main, R.string.해가_author, R.string.해가_genre, R.string.해가_epoch, R.string.해가_topic, R.string.해가_characteristic, R.string.해가_detail);
+        }else {
             RelativeLayout notYet = (RelativeLayout) findViewById(R.id.content_notYet);
             notYet.setVisibility(View.VISIBLE);
         }
