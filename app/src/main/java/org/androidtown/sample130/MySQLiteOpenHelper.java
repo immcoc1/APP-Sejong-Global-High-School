@@ -67,17 +67,17 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
 
         try {
 
-            myInsert(db, "공무도하가", " ", "고대가요");
-            myInsert(db, "구지가", " ", "고대가요");
-            myInsert(db, "정읍사", " ", "고대가요");
-            myInsert(db, "해가", " ", "고대가요");
-            myInsert(db, "황조가", "유리왕", "고대가요");
+            myInsert(db, "공무도하가", " ", "고대가요"); //Ok
+            myInsert(db, "구지가", " ", "고대가요"); //ok
+            myInsert(db, "정읍사", " ", "고대가요"); //ok
+            myInsert(db, "해가", " ", "고대가요"); //ok
+            myInsert(db, "황조가", "유리왕", "고대가요"); //ok
 
 
             //--------------------------------------------------
 
-            myInsert(db, "도솔가", "월명사", "향가");
-            myInsert(db, "도천수대비가", "희명", "향가");
+            myInsert(db, "도솔가", "월명사", "향가"); //ok
+            myInsert(db, "도천수대비가", "희명", "향가");//ok
             myInsert(db, "모죽지랑가", "득오곡", "향가");
             myInsert(db, "서동요", "서동(무왕)", "향가");
             myInsert(db, "안민가", "충담사", "향가");
