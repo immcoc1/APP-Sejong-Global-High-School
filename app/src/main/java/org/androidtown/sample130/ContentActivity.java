@@ -51,7 +51,7 @@ public class ContentActivity extends AppCompatActivity {
         } else if (name.equals("구지가")){
             mySetText(R.string.구지가_main, R.string.구지가_author, R.string.구지가_genre, R.string.구지가_epoch, R.string.구지가_topic, R.string.구지가_characteristic, R.string.구지가_detail);
         } else if (name.equals("정읍사")){
-            mySetText(R.string.정읍사_main, R.string.정읍사_author, R.string.정읍사_genre, R.string.정읍사_epoch, R.string.정읍사_topic, R.string.정읍사_characteristic, R.string.구지가_detail);
+            mySetText(R.string.정읍사_main, R.string.정읍사_author, R.string.정읍사_genre, R.string.정읍사_epoch, R.string.정읍사_topic, R.string.정읍사_characteristic, R.string.정읍사_detail);
         } else if (name.equals("해가")){
             mySetText(R.string.해가_main, R.string.해가_author, R.string.해가_genre, R.string.해가_epoch, R.string.해가_topic, R.string.해가_characteristic, R.string.해가_detail);
         }else if(name.equals("황조가")){
@@ -59,6 +59,8 @@ public class ContentActivity extends AppCompatActivity {
         }else if(name.equals("도솔가")){
             mySetText(R.string.도솔가_main, R.string.도솔가_author, R.string.도솔가_genre, R.string.도솔가_epoch, R.string.도솔가_topic, R.string.도솔가_characteristic, R.string.도솔가_detail);
         }else if(name.equals("도천수대비가")){
+            mySetText(R.string.도천수대비가_main, R.string.도천수대비가_author, R.string.도천수대비가_genre, R.string.도천수대비가_epoch, R.string.도천수대비가_topic, R.string.도천수대비가_characteristic, R.string.도천수대비가_detail);
+        }else if(name.equals("모죽지랑가")){
             mySetText(R.string.도천수대비가_main, R.string.도천수대비가_author, R.string.도천수대비가_genre, R.string.도천수대비가_epoch, R.string.도천수대비가_topic, R.string.도천수대비가_characteristic, R.string.도천수대비가_detail);
         }else {
             RelativeLayout notYet = (RelativeLayout) findViewById(R.id.content_notYet);
